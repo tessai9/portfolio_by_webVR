@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Portofolio</title>
+    <meta name="description" content="Portfolio of Tesao">
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene physics="debug: true">
+      <!-- Assets -->
+      <a-assets>
+        <img id="me" src="https://cdn.glitch.com/a830767a-7692-4474-9bd1-0cd9e83e59c3%2F52a6dde5.jpg?v=1578322614576" crossorigin="anonymous">
+        <img id="postgresql" src="https://cdn.glitch.com/a830767a-7692-4474-9bd1-0cd9e83e59c3%2Fpostgresql.png?v=1578318799873" crossorigin="anonymous">
+        <img id="ruby" src="https://cdn.glitch.com/a830767a-7692-4474-9bd1-0cd9e83e59c3%2Fruby.png?v=1578318800068" crossorigin="anonymous">
+        <img id="rails" src="https://cdn.glitch.com/a830767a-7692-4474-9bd1-0cd9e83e59c3%2Frails.png?v=1578318799897" crossorigin="anonymous">
+        <img id="frontend" src="https://cdn.glitch.com/a830767a-7692-4474-9bd1-0cd9e83e59c3%2Ffrontend.png?v=1578318799909" crossorigin="anonymous">
+        <img id="vue" src="https://cdn.glitch.com/a830767a-7692-4474-9bd1-0cd9e83e59c3%2Fvue.png?v=1578318799919" crossorigin="anonymous">
+        <img id="php" src="https://cdn.glitch.com/a830767a-7692-4474-9bd1-0cd9e83e59c3%2Fphp.png?v=1578318800087" crossorigin="anonymous">
+        <img id="docker" src="https://cdn.glitch.com/a830767a-7692-4474-9bd1-0cd9e83e59c3%2Fdocker.png?v=1578318800034" crossorigin="anonymous">
+        <img id="speech" src="https://cdn.glitch.com/a830767a-7692-4474-9bd1-0cd9e83e59c3%2Fe0724_1.png?v=1578399553508" crossorigin="anonymous">
+        <a-asset-item id="table_obj" src="https://cdn.glitch.com/a830767a-7692-4474-9bd1-0cd9e83e59c3%2Ftable.obj?v=1578409161222"></a-asset-item>
+        <a-asset-item id="table_mtl" src="https://cdn.glitch.com/a830767a-7692-4474-9bd1-0cd9e83e59c3%2Ftable.mtl?v=1578409189546"></a-asset-item>
+      </a-assets>
+      <!-- sky image -->
+      <a-sky id="sea" radius="10" src="https://cdn.glitch.com/a830767a-7692-4474-9bd1-0cd9e83e59c3%2FOI000001.png?v=1578319324257"></a-sky>
+      
+      <a-image src="#me" position="0 3 -5" height="3" width="2"
+        animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 1000; to: 0 2.5 -5; loop: true"
+      ></a-image>
+      <a-image src="#speech" position="-1 4.5 -4.9" width="2.5" height="1.5"></a-image>
+      <a-text value="Welcome to my portfolio!\n\nI'm Tetsunari Sumiyoshi" position="-1.8 4.6 -4.9" width="3.5" color="#000"></a-text>
+      
+      <!-- table objct -->
+      <a-entity obj-model="obj: #table_obj; mtl: #table_mtl;" position="0 0 -1" scale="0.03 0.01 0.005" static-body></a-entity>
+      
+      <!-- information box -->
+      <a-entity geometry="primitive: box; width: 0.3; height: 0.3; depth: 0.3;" position="-1 1 -1" dynamic-body>
+        <a-text value="my skills" position="-0.25 0.33 0" width="3"></a-text>
+      </a-entity>
+      <a-entity geometry="primitive: box; width: 0.3; height: 0.3; depth: 0.3;" position=" 0 1 -1" dynamic-body>
+        <a-text value="about me" position="-0.3 0.33 0" width="3"></a-text>
+      </a-entity>
+      <a-entity geometry="primitive: box; width: 0.3; height: 0.3; depth: 0.3;" position=" 1 1 -1" dynamic-body>
+        <a-text value="my works" position="-0.3 0.33 0" width="3"></a-text>
+      </a-entity>
+      
+      <!-- oculus controller -->
+      <a-entity oculus-touch-controls="hand: left"></a-entity>
+      <a-entity oculus-touch-controls="hand: right"></a-entity>
+      <!-- Camera + Cursor -->
+      <a-camera>
+        <a-cursor
+          id="cursor"
+          animation__click="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
+          animation__clickreset="property: scale; to: 0.1 0.1 0.1; dur: 1; startEvents: animationcomplete__click"
+          animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>
+      </a-camera>
+    </a-scene>
+  </body>
+</html>
